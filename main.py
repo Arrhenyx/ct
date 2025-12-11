@@ -1,7 +1,3 @@
-# =========================
-#  3D Lung Nodule Segmentation - UNETR (MONAI) - نسخه پایدار و بهینه
-#  تست شده روی LUNA16 + Medical Segmentation Decathlon Lung
-# =========================
 
 import os
 import numpy as np
