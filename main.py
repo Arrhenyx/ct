@@ -1,4 +1,5 @@
-import os
+
+کمتنننننimport os
 import json
 import random
 import logging
