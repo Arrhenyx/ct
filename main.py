@@ -82,9 +82,8 @@ CFG = {
 }
 
 
-# =============================================================================
 # Logging
-# =============================================================================
+
 def setup_logger(tag: str = "run") -> logging.Logger:
     os.makedirs("logs", exist_ok=True)
     fname = f"logs/{tag}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
@@ -100,9 +99,7 @@ def setup_logger(tag: str = "run") -> logging.Logger:
 logger = setup_logger()
 
 
-# =============================================================================
 # Reproducibility
-# =============================================================================
 def seed_everything(seed: int) -> None:
     set_determinism(seed=seed)
     random.seed(seed)
