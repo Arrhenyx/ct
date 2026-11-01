@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lung-seg"
-version = "0.1.0"
-description = "3D lung nodule segmentation with MONAI UNETR"
+version = "0.2.0"
+description = "3D lung nodule segmentation with MONAI (UNETR / SwinUNETR / UNet)"
 requires-python = ">=3.9"
 dependencies = [
     "torch>=2.1",
@@ -19,8 +19,14 @@ dependencies = [
     "tqdm>=4.66",
 ]
 
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-cov>=4.1"]
+
 [project.scripts]
 lung-seg = "lung_seg.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

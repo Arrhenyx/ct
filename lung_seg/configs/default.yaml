@@ -1,3 +1,4 @@
+# Data
 data_dir: data
 k_folds: 5
 fold: 0
@@ -15,13 +16,16 @@ pos_ratio: 1.0
 neg_ratio: 1.0
 
 # Model
+# One of: unetr, swinunetr, unet
+model_name: unetr
 feature_size: 16
 hidden_size: 768
 mlp_dim: 3072
 num_heads: 12
 dropout: 0.1
+swin_feature_size: 48
 
-# Optim
+# Optimization
 batch_size: 2
 val_batch_size: 1
 accum_steps: 2

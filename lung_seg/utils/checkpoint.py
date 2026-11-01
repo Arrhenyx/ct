@@ -14,7 +14,7 @@ def save_checkpoint(
     epoch: int,
     model: torch.nn.Module,
     optimizer: Optional[torch.optim.Optimizer],
-    scheduler: Optional[torch.optim.lr_scheduler._LRScheduler],
+    scheduler: Optional[torch.optim.lr_scheduler.LRScheduler],
     best_dice: float,
     config: Optional[dict] = None,
 ) -> None:
@@ -38,7 +38,7 @@ def load_checkpoint(
     path: str | Path,
     model: torch.nn.Module,
     optimizer: Optional[torch.optim.Optimizer] = None,
-    scheduler: Optional[torch.optim.lr_scheduler._LRScheduler] = None,
+    scheduler: Optional[torch.optim.lr_scheduler.LRScheduler] = None,
     map_location: str | torch.device = "cpu",
 ) -> Tuple[int, float]:
     ckpt = torch.load(path, map_location=map_location)
@@ -49,7 +49,5 @@ def load_checkpoint(
         scheduler.load_state_dict(ckpt["scheduler_state_dict"])
     epoch = ckpt.get("epoch", 0)
     best_dice = ckpt.get("best_dice", 0.0)
-    get_logger().info(
-        f"Loaded {path} (epoch {epoch}, best_dice {best_dice:.4f})"
-    )
+    get_logger().info(f"Loaded {path} (epoch {epoch}, best_dice {best_dice:.4f})")
     return epoch, best_dice

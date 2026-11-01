@@ -15,12 +15,9 @@ def setup_logger(log_dir: str = "logs", tag: str = "run") -> logging.Logger:
     logger.propagate = False
 
     fmt = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    fh = logging.FileHandler(fname)
-    fh.setFormatter(fmt)
-    sh = logging.StreamHandler()
-    sh.setFormatter(fmt)
-    logger.addHandler(fh)
-    logger.addHandler(sh)
+    for h in (logging.FileHandler(fname), logging.StreamHandler()):
+        h.setFormatter(fmt)
+        logger.addHandler(h)
     return logger
 
 
